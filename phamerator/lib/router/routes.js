@@ -12,6 +12,7 @@ Router.configure({
   notFoundTemplate: 'pageNotFound',
   //progressDebug : true,
   progress : true,
+  progressSpinner : false,
   yieldTemplates: {
     nav: {to: 'nav'},
     footer: {to: 'footer'}
@@ -25,12 +26,13 @@ Router.map(function() {
   this.route('phages', {
     loadingTemplate: 'loading',
     waitOn: function() {
-      return subscriptions.subscribe('genomes');
+      return Meteor.subscribe('genomes');
     }
   });
   this.route('phamilies');
+  this.route('cresawnlab');
   this.route('domains');
-  this.route('barChart');
+  this.route('terms');
   this.route('account', {
     loadingTemplate: 'loading',
     waitOn: function() {
@@ -47,4 +49,3 @@ AccountsTemplates.configureRoute('resetPwd');
 AccountsTemplates.configureRoute('signIn');
 AccountsTemplates.configureRoute('signUp');
 AccountsTemplates.configureRoute('verifyEmail');
-

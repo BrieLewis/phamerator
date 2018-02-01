@@ -7,6 +7,13 @@ Meteor.startup(function () {
 //Genomes = new Ground.Collection("genomes");
   Genomes = new Meteor.Collection("genomes");
 
+  Phams = new Meteor.Collection("phams");
+
+  Proteins = new Meteor.Collection("proteins");
+
+  Domains = new Meteor.Collection("domains");
+
+
   if (Meteor.isCordova && navigator.connection.type == 'WIFI') { Ground.Collection(Genomes); }
 
   var Schemas = {};
